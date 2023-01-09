@@ -1,0 +1,12 @@
+server:
+    Version: v1
+    Mode: debug
+    Port: 9000
+
+mongodb:
+    MongoURI: mongodb://127.0.0.1:27017
+
+redis:
+    RedisAddr: 127.0.0.1:6379
+    RedisPassword:
+    
