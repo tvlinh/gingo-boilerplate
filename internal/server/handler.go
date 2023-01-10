@@ -5,11 +5,11 @@ import (
 	"tvlinh/gingo-boilerplate/internal/server/handlerhttp"
 )
 
-func (g *GinServer) MapHandlers() error {
-	v1 := g.engine.Group("/api/" + g.cfg.Server.Version)
+func (s *GinServer) MapHandlers() error {
+	v1 := s.engine.Group("/api/" + s.cfg.Server.Version)
 	mw := middleware.NewMiddlewareManager()
 
-	g.engine.Use(mw.Base(), mw.Cors())
+	s.engine.Use(mw.Base(), mw.Cors())
 
 	handlerhttp.HandlerHelloWorld(v1.Group("/helloworld"), mw)
 	return nil

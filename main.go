@@ -1,7 +1,14 @@
 package main
 
-import "tvlinh/gingo-boilerplate/cmd/api"
+import (
+	"log"
+	"tvlinh/gingo-boilerplate/cmd/api"
+)
 
 func main() {
-	api.Run()
+	err := api.Run()
+	if err != nil {
+		log.Fatalln(err)
+		return
+	}
 }
