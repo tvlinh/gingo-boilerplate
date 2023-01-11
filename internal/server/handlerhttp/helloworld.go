@@ -21,7 +21,7 @@ func handlerHello(path string, r *gin.RouterGroup, mw *middleware.MiddlewareMana
 }
 
 func handlerHelloWorldAdvance(path string, r *gin.RouterGroup, mw *middleware.MiddlewareManager) {
-	helloUC := usecase.NewHelloAdvance("Linh")
+	helloUC := usecase.NewHelloAdvance()
 	helloHandle := http.NewHelloAdvance(helloUC)
 
 	r.GET(path, helloHandle.Hello())

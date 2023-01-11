@@ -3,17 +3,16 @@ package usecase
 import "tvlinh/gingo-boilerplate/internal/modules/helloworld/model"
 
 type HelloAdvance interface {
-	Hello() *model.Hello
+	Hello(name string) *model.Hello
 }
 
-func NewHelloAdvance(name string) HelloAdvance {
-	return &helloAdvance{Name: name}
+func NewHelloAdvance() HelloAdvance {
+	return &helloAdvance{}
 }
 
 type helloAdvance struct {
-	Name string
 }
 
-func (h *helloAdvance) Hello() *model.Hello {
-	return &model.Hello{Message: "Hello World, " + h.Name}
+func (h *helloAdvance) Hello(name string) *model.Hello {
+	return &model.Hello{Message: "Hello World, " + name}
 }

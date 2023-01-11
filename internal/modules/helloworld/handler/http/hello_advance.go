@@ -17,7 +17,8 @@ type helloAdvance struct {
 
 func (h *helloAdvance) Hello() gin.HandlerFunc {
 	return func(ctx *gin.Context) {
-		hello := h.uc.Hello()
+		name := ctx.Param("name")
+		hello := h.uc.Hello(name)
 
 		result := &presenter.Hello{}
 		ctx.JSON(200, result.FromModel(hello))
