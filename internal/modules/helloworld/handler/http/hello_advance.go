@@ -7,15 +7,15 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-type Hello interface {
+type HelloAdvance interface {
 	Hello() gin.HandlerFunc
 }
 
-type hello struct {
-	uc usecase.Hello
+type helloAdvance struct {
+	uc usecase.HelloAdvance
 }
 
-func (h *hello) Hello() gin.HandlerFunc {
+func (h *helloAdvance) Hello() gin.HandlerFunc {
 	return func(ctx *gin.Context) {
 		hello := h.uc.Hello()
 
@@ -24,6 +24,6 @@ func (h *hello) Hello() gin.HandlerFunc {
 	}
 }
 
-func NewHello(uc usecase.Hello) Hello {
-	return &hello{uc: uc}
+func NewHelloAdvance(uc usecase.HelloAdvance) HelloAdvance {
+	return &helloAdvance{uc: uc}
 }
